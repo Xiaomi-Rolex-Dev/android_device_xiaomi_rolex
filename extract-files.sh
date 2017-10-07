@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=santoni
+DEVICE=rolex
 VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks
