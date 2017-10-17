@@ -100,10 +100,10 @@ function configure_memory_parameters() {
     echo $clearPercent > /sys/module/zcache/parameters/clear_percent
     echo 30 >  /sys/module/zcache/parameters/max_pool_percent
 
-    # Zram disk - 512MB size
+    # Zram disk - 912MB size
     zram_enable=`getprop ro.config.zram`
     if [ "$zram_enable" == "true" ]; then
-        echo 536870912 > /sys/block/zram0/disksize
+        echo 936870912 > /sys/block/zram0/disksize
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
     fi
@@ -2394,3 +2394,8 @@ case "$console_config" in
         echo "Enable console config to $console_config"
         ;;
 esac
+
+# All colors 4 led
+chown system:system /sys/class/leds/*/brightness
+chown system:system /sys/class/leds/*/blink
+
